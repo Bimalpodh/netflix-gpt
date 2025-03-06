@@ -2,7 +2,9 @@ import React from 'react'
 
 function Body() {
   return (
-    <div className='body'></div>
+    <div className='body'>
+      
+    </div>
   )
 }
 
