@@ -1,7 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React, { useRef, useState } from "react";
 import Header from "./Header";
-import { BG_URL, USER_PROFILE_LOGO } from "../utils/constant";
+import { BG_URL } from "../utils/constant";
+import { USER_AVATAR } from "../utils/constant";
 import { checkValidData } from "../utils/validate";
 import {
   createUserWithEmailAndPassword,
@@ -51,7 +52,7 @@ const Login = () => {
           // Updating a user Profile
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL: "https://avatars.githubusercontent.com/u/172463907?v=4",
+            photoURL:USER_AVATAR,
           })
             .then(() => {
               // Profile updated!
@@ -61,10 +62,11 @@ const Login = () => {
                         uid:uid,
                         email:email,
                         displayName:displayName,
-                        photoURL:photoURL || USER_PROFILE_LOGO
+                        photoURL:photoURL
                       }
                     ));
-              navigate("/browse");
+              navigate("/browse"); // -----------
+              
 
               // ...
             })
@@ -73,7 +75,7 @@ const Login = () => {
               setErrorMessage(error.message)
               // ...
             });
-          console.log(user);
+          // console.log(user);
 
           // ...
         })
@@ -93,8 +95,8 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log(user);
-          navigate("/browse");
+          // console.log(user);
+          navigate("/browse"); // -----------
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -132,7 +134,7 @@ const Login = () => {
       </div>
 
       {showLoginForm ? (
-        <div className="absolute inset-0 flex justify-center items-center px-4">
+        <div className=" absolute mt-10 inset-0 flex justify-center items-center px-4">
           <form
             onSubmit={(e) => e.preventDefault()}
             className="bg-black opacity-80 max-w-md w-full border text-white p-8 rounded-lg"

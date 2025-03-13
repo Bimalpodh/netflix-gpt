@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect } from "react";
-import { createBrowserRouter, RouterProvider} from "react-router-dom";
+import { createBrowserRouter, RouterProvider, useNavigate} from "react-router-dom";
 import Login from "./Login";
 import Browse from "./Browse";
 import { onAuthStateChanged } from "firebase/auth";
@@ -11,10 +11,7 @@ import { addUser, removeUser } from "../reduxStore/userSlice";
 
 
 const Body = () => {
-  const dispatch=useDispatch();
-
-
-
+  
   const appRouter = createBrowserRouter([
     {
       path: "/",
@@ -28,30 +25,7 @@ const Body = () => {
   // ------------------------------
 
   
-useEffect(()=>{
 
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      const {uid,email,displayName,photoURL} = user;
-      dispatch(addUser(
-        {
-          uid:uid,
-          email:email,
-          displayName:displayName,
-          photoURL:photoURL
-        }
-      ));
-      
-      // ...
-    } else {
-      // User is signed out
-      // ...
-      dispatch(removeUser())
-      
-    }
-  });
-
-},[])
 
 
   return (
