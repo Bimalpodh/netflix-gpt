@@ -175,6 +175,7 @@ const Login = () => {
               {isSignInForm ? "Sign In" : "Sign Up"}
             </button>
 
+
             <p
               className="text-center cursor-pointer"
               onClick={toggleSignInForm}
@@ -183,7 +184,25 @@ const Login = () => {
                 ? "New to Netflix ? Sign Up Now."
                 : "Already Registered? Sign In now"}
             </p>
+            {/* Additional Options */}
+          <div className="flex justify-between items-center text-sm text-gray-400 mt-3">
+            <label className="flex items-center space-x-1">
+              <input type="checkbox" className="accent-red-600" />
+              <span>Remember me</span>
+            </label>
+            <a href="#" className="hover:underline">Need help?</a>
+          </div>
+
+          {/* Sign-Up & Terms */}
+          <div className="mt-6 text-gray-400 text-sm">
+            
+            <p className="mt-3 text-xs">
+              This page is protected by Google reCAPTCHA to ensure you're not a bot.{" "}
+              <a href="#" className="text-blue-500 hover:underline">Learn more</a>.
+            </p>
+          </div>
           </form>
+          
         </div>
       ) : (
         <Homepage />

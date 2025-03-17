@@ -9,7 +9,7 @@ const MainContainer = () => {
 
   if(!movies)return;
   // this is also known as early return
-  const mainMovie=movies[1];
+  const mainMovie=movies[3];
   // console.log(mainMovie);
   const {original_title,overview,id}=mainMovie;
   
