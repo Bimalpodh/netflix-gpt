@@ -34,6 +34,10 @@
 - TMDB IMAGE CDNURL
 - Made the Browse page amaxing with Tailwind css
 - I'm making usePopularMovies,useTopRatedMovies,useUpcomingMovies custom hook
+- GPT Search page
+- Gpt search bar
+- Multi language feature in our App
+-  Integrate the GPT APIs
 
 ...
 # Features
