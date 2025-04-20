@@ -20,14 +20,13 @@ const Login = () => {
   const [errorMessage, setErrorMessage] = useState(null);
   const [showLoginForm, setShowLoginForm] = useState(false);
   const navigate = useNavigate();
-  const dispatch=useDispatch(); 
+  const dispatch = useDispatch();
 
   const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
 
   const handleButtonClick = () => {
-    // Validate the form data
     const message = checkValidData(
       email.current?.value,
       password.current?.value,
@@ -36,94 +35,87 @@ const Login = () => {
     setErrorMessage(message);
     if (message) return;
 
-    //sign in sign up logic
     if (!isSignInForm) {
-      // sign up Logic
+      // Sign Up
       createUserWithEmailAndPassword(
         auth,
         email.current.value,
-        password.current.value,
-        name.current.value
+        password.current.value
       )
         .then((userCredential) => {
-          // Signed up (when user succesfully sign up )
           const user = userCredential.user;
-
-          // Updating a user Profile
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL:USER_AVATAR,
+            photoURL: USER_AVATAR,
           })
             .then(() => {
-              // Profile updated!
-              const {uid,email,displayName,photoURL} = auth.currentUser;
-                    dispatch(addUser(
-                      {
-                        uid:uid,
-                        email:email,
-                        displayName:displayName,
-                        photoURL:photoURL
-                      }
-                    ));
-              navigate("/browse"); // -----------
-              
-
-              // ...
+              const { uid, email, displayName, photoURL } = auth.currentUser;
+              dispatch(
+                addUser({
+                  uid,
+                  email,
+                  displayName,
+                  photoURL,
+                })
+              );
+              console.log("User signed up and profile updated:", auth.currentUser);
+              navigate("/browse");
             })
             .catch((error) => {
-              // An error occurred
-              setErrorMessage(error.message)
-              // ...
+              setErrorMessage(error.message);
+              console.error("Error updating profile:", error);
             });
-
         })
         .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          setErrorMessage(errorCode + " - " + errorMessage);
-          // ..
+          setErrorMessage(error.code + " - " + error.message);
+          console.error("Signup error:", error);
         });
     } else {
-      // sign in logic
+      // Sign In
       signInWithEmailAndPassword(
         auth,
         email.current.value,
         password.current.value
       )
         .then((userCredential) => {
-          // Signed in
           const user = userCredential.user;
-          navigate("/browse"); // -----------
+          dispatch(
+            addUser({
+              uid: user.uid,
+              email: user.email,
+              displayName: user.displayName,
+              photoURL: user.photoURL,
+            })
+          );
+          console.log("User signed in:", user);
+          navigate("/browse");
         })
         .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          setErrorMessage(errorCode + " - " + errorMessage);
+          setErrorMessage(error.code + " - " + error.message);
+          console.error("Signin error:", error);
         });
     }
   };
+
   const handleSignInClick = () => {
     setShowLoginForm(true);
   };
 
   const toggleSignInForm = () => {
     setIsSignInForm(!isSignInForm);
+    setErrorMessage(null);
   };
 
   return (
-    <div className=" w-screen min-h-screen ">
-      {/* Header */}
-
+    <div className="w-screen min-h-screen">
       <Header
         onSignInClick={handleSignInClick}
         showSignInButton={!showLoginForm}
       />
 
-      <div className="relative w-full min-h-screen ">
-        {/* Background Image */}
-
+      <div className="relative w-full min-h-screen">
         <img
-          className=" top-0 left-0 w-full min-h-screen object-cover fixed"
+          className="top-0 left-0 w-full min-h-screen object-cover fixed"
           src={BG_URL}
           alt="bg-img"
         />
@@ -131,7 +123,7 @@ const Login = () => {
       </div>
 
       {showLoginForm ? (
-        <div className=" absolute mt-10 inset-0 flex justify-center items-center px-4">
+        <div className="absolute mt-10 inset-0 flex justify-center items-center px-4">
           <form
             onSubmit={(e) => e.preventDefault()}
             className="bg-black opacity-80 max-w-md w-full border text-white p-8 rounded-lg"
@@ -152,19 +144,17 @@ const Login = () => {
               ref={email}
               type="email"
               placeholder="Email address"
-              className="bg-gray-700  p-4 my-2 w-full rounded-sm"
+              className="bg-gray-700 p-4 my-2 w-full rounded-sm"
             />
-
             <input
               ref={password}
               type="password"
               placeholder="Password"
-              className="bg-gray-700
-               p-4 my-2 w-full rounded-sm"
+              className="bg-gray-700 p-4 my-2 w-full rounded-sm"
             />
-            <p className="text-red-500 text-lg font-bold py-3">
-              {errorMessage}
-            </p>
+
+            <p className="text-red-500 text-lg font-bold py-3">{errorMessage}</p>
+
             <button
               className="cursor-pointer w-full p-4 my-4 bg-red-600 rounded-lg transition-all duration-200 ease-in-out hover:bg-red-700 hover:scale-105 active:bg-red-800 active:scale-95 hover:font-bold"
               onClick={handleButtonClick}
@@ -172,34 +162,36 @@ const Login = () => {
               {isSignInForm ? "Sign In" : "Sign Up"}
             </button>
 
-
             <p
               className="text-center cursor-pointer"
               onClick={toggleSignInForm}
             >
               {isSignInForm
-                ? "New to Netflix ? Sign Up Now."
-                : "Already Registered? Sign In now"}
+                ? "New to Netflix? Sign Up Now."
+                : "Already registered? Sign In now"}
             </p>
-            {/* Additional Options */}
-          <div className="flex justify-between items-center text-sm text-gray-400 mt-3">
-            <label className="flex items-center space-x-1">
-              <input type="checkbox" className="accent-red-600" />
-              <span>Remember me</span>
-            </label>
-            <a href="#" className="hover:underline">Need help?</a>
-          </div>
 
-          {/* Sign-Up & Terms */}
-          <div className="mt-6 text-gray-400 text-sm">
-            
-            <p className="mt-3 text-xs">
-              This page is protected by Google reCAPTCHA to ensure you're not a bot.{" "}
-              <a href="#" className="text-blue-500 hover:underline">Learn more</a>.
-            </p>
-          </div>
+            <div className="flex justify-between items-center text-sm text-gray-400 mt-3">
+              <label className="flex items-center space-x-1">
+                <input type="checkbox" className="accent-red-600" />
+                <span>Remember me</span>
+              </label>
+              <a href="#" className="hover:underline">
+                Need help?
+              </a>
+            </div>
+
+            <div className="mt-6 text-gray-400 text-sm">
+              <p className="mt-3 text-xs">
+                This page is protected by Google reCAPTCHA to ensure you're not a
+                bot.{" "}
+                <a href="#" className="text-blue-500 hover:underline">
+                  Learn more
+                </a>
+                .
+              </p>
+            </div>
           </form>
-          
         </div>
       ) : (
         <Homepage />

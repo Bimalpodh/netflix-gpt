@@ -6,7 +6,8 @@ export const API_OPTION={
   method: 'GET',
   headers: {
     accept: 'application/json',
-    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ODUxYjQ5MTA0YmViZTc1YTA1MTM2Zjc4MDE0Y2RlZCIsIm5iZiI6MTc0MTc2MDM2Ni4zOTY5OTk4LCJzdWIiOiI2N2QxMjc2ZTY0NDQzOTg0YjExZGY2MGMiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.gUG8CgzeWrhbigeoOQAipAPt7stxbqtbKGMQ0vOvdJ8'
+    Authorization: 'Bearer ' + import.meta.env.VITE_TMDB_KEY
+
   }
 };
 
@@ -18,3 +19,6 @@ export const SUPPORTED_LANGUAGE=[
   {identifier:"spanish",name:"spanish"},
   {identifier:"french",name:"french"}
 ]
+
+export const GEMINI_AI_KEY = import.meta.env.VITE_GEMINI_AI_KEY;
+
