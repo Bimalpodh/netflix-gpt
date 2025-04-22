@@ -1,6 +1,6 @@
 # 🎬 Netflix-GPT
 
-> Your AI-powered Netflix clone that recommends movies using GPT & TMDB, built with **React**, **Redux**, **Firebase**, and **TailwindCSS**.
+> My AI-powered Netflix clone that recommends movies using GPT & TMDB, built with **React**, **Redux**, **Firebase**, and **TailwindCSS**.
 
 ---
 
@@ -108,12 +108,9 @@ src/ │ ├── components/ │ ├── Header.jsx │ ├── MovieCard.
 
 ## 📷 Screenshots
 
-_Add your screenshots here:_
+![Sign In Page](./assets/signInPage1.png)  
+![Sign Up Page](./assets/signUpPage.png)  
+![Browse Page](./assets/BrowsePage.png)  
+![Browse Page (Scroll)](./assets/BrowsePagedown.png)  
+![GPT Search](./assets/gptPage.png)
 
-```md
-![Sigin Page](./src/assets/signInPage%20(1).png)
-![SigUp Page](./src/assets/signUpPage.png)
-
-![Browse Page](./src/assets/BrowsePage.png)
-![Browse Page](./src/assets/BrowsePagedown.png)
-![GPT Search](./src/assets/gptPage.png)
