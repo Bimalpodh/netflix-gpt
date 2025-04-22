@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import geminiModel from "../../utils/openAi/"
 import { API_OPTION } from '../../utils/constant'
 import { addGeminiMoviesResults } from '../../reduxStore/gptslice'
+import gptslice from '../../reduxStore/gptslice';
+
 
 const GptSearchBar = () => {
   const langKey=useSelector((store)=>store?.config?.lang);
