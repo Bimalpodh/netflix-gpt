@@ -108,9 +108,9 @@ src/ │ ├── components/ │ ├── Header.jsx │ ├── MovieCard.
 
 ## 📷 Screenshots
 
-![Sign In Page](./assets/signInPage1.png)  
-![Sign Up Page](./assets/signUpPage.png)  
-![Browse Page](./assets/BrowsePage.png)  
-![Browse Page (Scroll)](./assets/BrowsePagedown.png)  
-![GPT Search](./assets/gptPage.png)
+![Sign In Page](./src/assets/signInPage.png)  
+![Sign Up Page](./src/assets/signUpPage.png)  
+![Browse Page](./src/assets/BrowsePage.png)  
+![Browse Page (Scroll)](./src/assets/BrowsePagedown.png)  
+![GPT Search](./src/assets/gptPage.png)
 
