@@ -7,7 +7,7 @@ const Header = ({ onSignInClick ,showSignInButton }) => {
     <div className="fixed top-0 left-0 w-full px-4 md:px-12 flex flex-col md:flex-row justify-between items-center bg-gradient-to-b from-black via-black/70 to-transparent z-50">
     <img
       className="w-24 md:w-36"
-      src="src/assets/netflix-gpt.svg"
+      src="https://cdn1.iconfinder.com/data/icons/logos-brands-in-colors/7500/Netflix_Logo_RGB-512.png"
       alt="logo"
     />
       
