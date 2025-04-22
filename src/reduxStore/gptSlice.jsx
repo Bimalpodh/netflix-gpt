@@ -10,7 +10,7 @@ const gptSlice=createSlice({
 
   },
   reducers:{
-    toggleGptSearchView:(state,action)=>{
+    toggleGptSearchView:(state)=>{
       state.showGptSearch=!state.showGptSearch;
     },
     addGeminiMoviesResults:(state,action)=>{
