@@ -199,7 +199,7 @@ const Login = () => {
           </form>
         </div>
       ) : (
-        <Homepage />
+        <Homepage onGetStartedClick={handleSignInClick} />
       )}
     </div>
   );

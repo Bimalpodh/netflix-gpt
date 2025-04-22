@@ -1,6 +1,6 @@
 import React from "react";
 
-const Homepage = () => {
+const Homepage = ({onGetStartedClick}) => {
   return (
     <div className="absolute 
     mt-44
@@ -26,7 +26,7 @@ const Homepage = () => {
                 className="w-56 p-4 h-14 rounded-sm border border-red-500"
               />
 
-              <button className=" md:w-40 w-40 bg-red-700 h-14 rounded-sm font-bold text-lg cursor-pointer hover:bg-red-800 transition">
+              <button onClick={onGetStartedClick} className=" md:w-40 w-40 bg-red-700 h-14 rounded-sm font-bold text-lg cursor-pointer hover:bg-red-800 transition">
                 Get Started ﹥
               </button>
             </div>
