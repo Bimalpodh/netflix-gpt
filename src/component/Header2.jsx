@@ -65,7 +65,7 @@ const Header2 = () => {
       {/* Logo */}
       <img
         className="w-24 md:w-36 "
-        src="src\assets\netflix-gpt.svg"
+        src="https://cdn1.iconfinder.com/data/icons/logos-brands-in-colors/7500/Netflix_Logo_RGB-512.png"
         alt="logo"
       />
 
