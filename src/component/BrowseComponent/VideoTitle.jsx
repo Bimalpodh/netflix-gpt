@@ -6,7 +6,7 @@ const VideoTitle = ({title,overview}) => {
       <h1 className='w-30 md:w-auto ml-4 md:ml-0 text-sm md:text-3xl font-bold '>{title}</h1>
       <p className='hidden sm:hidden md:inline-block text-lg py-4 w-1/4 text-justify'>{overview}</p>
 
-      <div className='flex m-4 md:mt-4 '>
+      <div className='flex m-4 md:m-0 md:mt-4 '>
         <button className='bg-white text-black hover:font-bold  md:transition-all md:duration-200 md:ease-in-out md:hover:scale-105 md:active-scale-95 md:px-10 md:mr-2 rounded-lg hover:opacity-85   md:text-lg md:p-2 md:h-10 md:w-30 w-20 h-7'> ▷Play</button>
 
         <button className='bg-gray-400 md:px-10 hover:font-bold text-white md:transition-all md:duration-200 md:ease-in-out md:hover:scale-105 md:active-scale-95 ml-2 md:mr-4 rounded-lg hover:opacity-85  md:text-lg md:p-2 md:h-10 md:w-30 w-20 h-7'>Info</button>

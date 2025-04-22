@@ -16,7 +16,7 @@ const Browse = () => {
   useTopRatedMovies();
   useUpComingMovies();
   return (
-    <div>
+    <div flex flex-col min-h-screen bg-black text-white>
       <Header2 />
       {showGptSearch ? (
         <GptSearch />
@@ -37,6 +37,8 @@ const Browse = () => {
             - cards * n
       
       */}
+      
+      
     </div>
   );
 };

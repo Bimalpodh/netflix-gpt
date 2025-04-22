@@ -2,11 +2,11 @@ import React from "react";
 
 const Homepage = ({onGetStartedClick}) => {
   return (
-    <div className="absolute 
-    mt-44
+    <div className=" mt-74
+    box-border
     md:mt-60 inset-0 flex items-center justify-center ">
 
-          <div className="w-full h-full fixed text-white text-center p-6 rounded-lg">
+          <div className="w-full fixed text-white text-center rounded-lg">
             <h1 className=" md:text-5xl text-3xl font-bold m-4">
               Unlimited movies, TV shows, and more
             </h1>
