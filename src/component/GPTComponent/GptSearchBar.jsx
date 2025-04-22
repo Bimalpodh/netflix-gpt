@@ -6,6 +6,7 @@ import { API_OPTION } from '../../utils/constant'
 import { addGeminiMoviesResults } from '../../reduxStore/gptSlice'
 
 
+
 const GptSearchBar = () => {
   const langKey=useSelector((store)=>store?.config?.lang);
   const searchText=useRef(null);
