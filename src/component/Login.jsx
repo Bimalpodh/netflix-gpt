@@ -58,7 +58,10 @@ const Login = () => {
                   photoURL,
                 })
               );
-              console.log("User signed up and profile updated:", auth.currentUser);
+              console.log(
+                "User signed up and profile updated:",
+                auth.currentUser
+              );
               navigate("/browse");
             })
             .catch((error) => {
@@ -153,7 +156,9 @@ const Login = () => {
               className="bg-gray-700 p-4 my-2 w-full rounded-sm"
             />
 
-            <p className="text-red-500 text-lg font-bold py-3">{errorMessage}</p>
+            <p className="text-red-500 text-lg font-bold py-3">
+              {errorMessage}
+            </p>
 
             <button
               className="cursor-pointer w-full p-4 my-4 bg-red-600 rounded-lg transition-all duration-200 ease-in-out hover:bg-red-700 hover:scale-105 active:bg-red-800 active:scale-95 hover:font-bold"
@@ -183,8 +188,8 @@ const Login = () => {
 
             <div className="mt-6 text-gray-400 text-sm">
               <p className="mt-3 text-xs">
-                This page is protected by Google reCAPTCHA to ensure you're not a
-                bot.{" "}
+                This page is protected by Google reCAPTCHA to ensure you're not
+                a bot.{" "}
                 <a href="#" className="text-blue-500 hover:underline">
                   Learn more
                 </a>

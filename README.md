@@ -37,7 +37,14 @@
 - GPT Search page
 - Gpt search bar
 - Multi language feature in our App
--  Integrate the GPT APIs
+- Integrate the GPT APIs
+- Memoization
+- fetch gptMoviesSuggestion from TMDB
+- created gptSlice
+- Reused MovieList
+- added .env file
+- adding .env  file to github
+- Make it responsive
 
 ...
 # Features

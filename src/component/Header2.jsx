@@ -60,17 +60,22 @@ const Header2 = () => {
   };
 
   return (
-    <div className="absolute px-10 top-0 left-0 w-full flex justify-between items-center  bg-opacity-50 bg-gradient-to-b from-black z-10">
+    <>
+    <div className="absolute top-0 left-0 w-full px-4 md:px-12 flex flex-col md:flex-row justify-between items-center bg-gradient-to-b from-black via-black/70 to-transparent z-10 ">
       {/* Logo */}
-      <img className="w-36" src="src\assets\netflix-gpt.svg" alt="logo" />
+      <img
+        className="w-24 md:w-36 "
+        src="src\assets\netflix-gpt.svg"
+        alt="logo"
+      />
 
       {/* Sign-in Button */}
 
       {user && (
-        <div className="flex p-2">
+        <div className="flex  md:p-2">
           {showGptSearch && (
             <select
-              className="bg-amber-50 p-2  h-10 m-2"
+              className="bg-amber-50 w-20 rounded-sm md:p-2 h-8  text-[17px] md:h-10 mr-2  md:m-2"
               name="lang"
               onChange={handleLanguageChange}
             >
@@ -82,25 +87,35 @@ const Header2 = () => {
             </select>
           )}
           <button
-            className="bg-gray-300 px-4 py-2 m-2 rounded-lg hover:font-bold"
+            className="bg-gray-300 h-7  px-3 md:px-4 md:py-2 md:h-10 md:m-2 rounded-lg hover:font-bold"
             onClick={handleGptSearchClick}
           >
-            {!showGptSearch?"GPT-search": "Homepage"}
+            {!showGptSearch ? "GPT-search" : "Homepage"}
           </button>
-          <img className="h-14 px-2 py-2 " src={user.photoURL} alt="user" />
+          <img
+            className=" md:h-14 h-7 px-2 md:py-2 "
+            src={user.photoURL}
+            alt="user"
+          />
 
-          <div>
-            <p className="mx-2 text-xl text-green-500">{user?.displayName}</p>
+          <div className="p-0 mb-0">
             <button
-              className="text-white text-sm font-bold mx-2"
+              className="  text-red-700 font-bold text-[11px] md:text-sm md:font-bold md:mx-2"
               onClick={handleSignOut}
             >
               (Sign Out)
+              
+              <p className="mr-2 md:mx-2  md:text-xl font-bold text-sky-700">
+                {user?.displayName}
+              </p>
+           
             </button>
+           
           </div>
         </div>
       )}
     </div>
+    </>
   );
 };
 
