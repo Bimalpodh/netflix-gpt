@@ -108,9 +108,23 @@ src/ │ ├── components/ │ ├── Header.jsx │ ├── MovieCard.
 
 ## 📷 Screenshots
 
+### 🔐 Sign In Page
 ![Sign In Page](./src/assets/signInPage.png)  
+
+### 📝 Sign Up Page
 ![Sign Up Page](./src/assets/signUpPage.png)  
-![Browse Page](./src/assets/BrowsePage.png)  
+
+### 🎬 Browse Page
+![Browse Page](./src/assets/BrowsePage.png) 
+
+### ⬇️ Browse Page (Scrolled) 
 ![Browse Page (Scroll)](./src/assets/BrowsePagedown.png)  
+
+### 🤖 GPT Search Feature
 ![GPT Search](./src/assets/gptPage.png)
 
+### 🎬 Click Poster to Play Trailer
+
+Clicking on any movie poster opens a modal and plays the YouTube trailer automatically.
+
+![Click Poster to Play Trailer](./src/assets/playingTrailer.png)
