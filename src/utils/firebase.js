@@ -1,14 +1,11 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import { getAuth } from "firebase/auth";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+import { initializeApp } from "firebase/app";
+import { getAnalytics, isSupported } from "firebase/analytics";
+import { getAuth } from "firebase/auth";
+
+// Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyBZdHF3c-9f528vwvTG6THFNusnAiNrSt8",
   authDomain: "netflix-gpt-e6cb6.firebaseapp.com",
@@ -21,6 +18,19 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const auth = getAuth(app);
 
-export const auth = getAuth();
+// ✅ Safe function to get analytics if supported
+const getAnalyticsInstance = async () => {
+  const supported = await isSupported();
+  if (supported) {
+    const analytics = getAnalytics(app);
+    console.log("✅ Firebase Analytics initialized");
+    return analytics;
+  } else {
+    console.warn("⚠️ Firebase Analytics not supported in this environment");
+    return null;
+  }
+};
+
+export { app, auth, getAnalyticsInstance };
